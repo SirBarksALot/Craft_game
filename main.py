@@ -1,3 +1,3 @@
 import itemslist
 
-itemslist.steel_claw.print('requirementsdictionary', 0)
+itemslist.steel_claw.print('trollo', 0)

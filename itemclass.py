@@ -39,4 +39,4 @@ class Item:
             else:
                 print(self.__getattribute__(whattoprint))
         else:
-            print('No attribute named + {} + found!'.format(whattoprint))
+            print('No attribute named ==> {} <== found!'.format(whattoprint))
