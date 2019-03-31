@@ -17,7 +17,7 @@ class Item:
     def depthleveltransform(depthlevel):  # transform depthlevelforindent into --
         outputindent = ''
         for i in range(depthlevel):
-            outputindent += '--'
+            outputindent += '    '
 
         return outputindent
 
@@ -33,7 +33,7 @@ class Item:
                             key.print(whattoprint, depthlevelforindent)
                             depthlevelforindent -= 1
                         else:
-                            print(' basic')
+                            print('')
                 else:
                     print('basic')
             else:
