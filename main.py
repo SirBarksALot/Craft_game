@@ -1,3 +1,3 @@
-import itemslist
+from itemslist import steel_claw
 
-itemslist.steel_claw.print('requirementsdictionary', 0)
+print(steel_claw)

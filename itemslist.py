@@ -11,8 +11,7 @@ honey = itemclass.Item('Honey', True, False, False, True, {})
 
 # ores
 iron_ore = itemclass.Item('Iron ore', True, False, False, True, {})
-malachite_ore = itemclass.Item('Iron ore', False, False, False, True, {})
-silver_ore = itemclass.Item('Iron ore', False, False, False, True, {})
+malachite_ore = itemclass.Item('Malachite ore', False, False, False, True, {})
 
 # metals
 iron_bar = itemclass.Item('Iron bar', False, False, True, False, {iron_ore: 5, coal: 4, wood: 3})
