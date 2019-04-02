@@ -1,7 +1,7 @@
 # to create Item class object simply:
 # apple_juice = Item('Apple juice', True, False, True, False, True, {apple : 3, cold_water : 1})
 # where 'Apple juice' is a display name, then common_shop=True, secret_shop = False, craft = True, drop = False
-# enchant = True and craft requirements are 3 apple objects and 1 water object
+# and craft requirements are 3 apple objects and 1 water object
 
 # to print an attribute:
 # 1.
