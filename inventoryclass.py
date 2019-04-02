@@ -1,4 +1,4 @@
-# to create Inventory class object simply e. g.:
+# to create Inventory class object simply:
 # bag = Inventory()
 
 # in order to print whole existing inventory simply :

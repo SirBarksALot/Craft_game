@@ -1,3 +1,29 @@
+# to create Item class object simply:
+# apple_juice = Item('Apple juice', True, False, True, False, {apple : 3, cold_water : 1})
+# where 'Apple juice' is a display name, then common_shop=True, secret_shop = False, craft = True, drop = False
+# and craft requirements are 3 apple objects and 1 water object
+
+# to print an attribute:
+# 1.
+# apple_juice.print('name', 0)
+# OUTPUT:
+# Apple juice
+# 2.
+# apple_juice.print('requirements_dictionary', 0)
+# OUTPUT:
+# Apple => 3
+# Cold Water => 1:
+#     Water => 1
+#     Ice => 2
+# where 'name' is the attribute and 0 is the starting indent level (for nicely looking craft tree)
+
+# in order to increase enchant level:
+# apple_juice.enchant_level(3)
+# apple_juice.print('name', 0)
+# OUTPUT:
+# Apple juice +3
+
+
 class Item:
     def __init__(self, name, common_shop, secret_shop, craft, drop, requirements_dictionary):
         self.name = name
@@ -41,4 +67,5 @@ class Item:
 
     def enchant_level(self, enchant):
         if enchant > 0:
-            self.name += str(enchant)
+            enchant = ' +' + str(enchant)
+            self.name += enchant
