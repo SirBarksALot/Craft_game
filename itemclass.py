@@ -41,4 +41,4 @@ class Item:
 
     def enchant_level(self, enchant):
         if enchant > 0:
-            self.name += enchant
+            self.name += str(enchant)
