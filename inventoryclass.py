@@ -1,5 +1,24 @@
+# to create Inventory class object simply e. g.:
+# bag = Inventory()
+
+# in order to print whole existing inventory simply :
+# bag.print()
+
+# to add space to an existing inventory use:
+# bag.inventory_space_add(x)
+# where x is an amount of bracket you want to add
+
+# to add an item to an existing inventory use:
+# bag.add_to_inventory('Wood', 10)
+# where 'Wood' is an item and 10 is it's amount
+
+# to subtract an item to an existing inventory use:
+# bag.subtract_from_inventory('Slime', 5)
+# where 'Slime' is an item from which you want to subtract 5 instances
+
+
 class Inventory:
-    def __init__(self):
+    def __init__(self):  # inventory object constructor
         self.inventory_item = []
         self.inventory_amount = []
 
@@ -44,24 +63,3 @@ class Inventory:
     def print(self):
         for i in range(len(self.inventory_item)):
             print(self.inventory_item[i] + ' : ' + str(self.inventory_amount[i]))
-
-
-bag = Inventory()
-
-bag.inventory_space_add(3)
-bag.add_to_inventory('Wood', 10)
-bag.print()
-bag.add_to_inventory('Wood', 5)
-bag.print()
-bag.add_to_inventory('Thread', 8)
-bag.print()
-bag.add_to_inventory('Slime', 3)
-bag.print()
-bag.add_to_inventory('Coal', 1)
-bag.print()
-bag.subtract_from_inventory('Slime', 3)
-bag.print()
-bag.subtract_from_inventory('Thread', 16)
-bag.print()
-bag.add_to_inventory('Coal', 1)
-bag.print()
