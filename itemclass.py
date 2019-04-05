@@ -1,8 +1,3 @@
-# to create Item class object simply:
-# apple_juice = Item('Apple juice', True, False, True, False, True, {apple : 3, cold_water : 1})
-# where 'Apple juice' is a display name, then common_shop=True, secret_shop = False, craft = True, drop = False
-# and craft requirements are 3 apple objects and 1 water object
-
 # to print an attribute:
 # 1.
 # apple_juice.print('name', 0)
@@ -30,9 +25,10 @@ class Item:
         if self.enchant is True:
             self.enchant_level = 0
 
-        print('Creating {}'.format(self.name))
-
     def __str__(self):
+        if self.enchant is True and self.enchant_level > 0:
+                return self.name + ' +' + str(self.enchant_level)
+
         return self.name
 
     def __bool__(self):
@@ -68,13 +64,7 @@ class WeaponItem(Item):
     def __init__(self, name, options_list, requirements_dictionary):
         self.enchant_level = 0
         self.attack_power = 0
-        if self.enchant_level > 0:
-            self.name = name + str(self.enchant_level)
-        else:
-            self.name = name
-
-        super().__init__(self.name, options_list, requirements_dictionary)
+        super().__init__(name, options_list, requirements_dictionary)
 
     def enchant_fct(self):
         self.enchant_level += 1
-        self.name += ' +' + str(self.enchant_level)
