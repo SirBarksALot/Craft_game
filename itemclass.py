@@ -19,13 +19,17 @@
 
 
 class Item:
-    def __init__(self, name, common_shop, secret_shop, craft, drop, requirements_dictionary):
+    def __init__(self, name, options_list, requirements_dictionary):
         self.name = name
-        self.common_shop = common_shop
-        self.secret_shop = secret_shop
-        self.craft = craft
-        self.drop = drop
+        self.common_shop = options_list[0]
+        self.secret_shop = options_list[1]
+        self.craft = options_list[2]
+        self.drop = options_list[3]
+        self.enchant = options_list[4]
         self.requirements_dictionary = requirements_dictionary
+        if self.enchant is True:
+            self.enchant_level = 0
+
         print('Creating {}'.format(self.name))
 
     def __str__(self):
@@ -58,3 +62,19 @@ class Item:
                 print('basic')
         else:
             print(self.__getattribute__(what_to_print))
+
+
+class WeaponItem(Item):
+    def __init__(self, name, options_list, requirements_dictionary):
+        self.enchant_level = 0
+        self.attack_power = 0
+        if self.enchant_level > 0:
+            self.name = name + str(self.enchant_level)
+        else:
+            self.name = name
+
+        super().__init__(self.name, options_list, requirements_dictionary)
+
+    def enchant_fct(self):
+        self.enchant_level += 1
+        self.name += ' +' + str(self.enchant_level)
