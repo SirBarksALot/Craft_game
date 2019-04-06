@@ -49,10 +49,8 @@ class Inventory:
 
     def inventory_space_check(self):
         if 'empty' in self.inventory_item:
-            print('Enough space in inventory!')
             return True
         else:
-            print('Inventory is full')
             return False
 
     def item_place(self, item):
@@ -63,15 +61,17 @@ class Inventory:
         if item in self.inventory_item:  # checks if item is already in inventory if it does, increase amount
             self.inventory_amount[self.item_place(item)] += amount
         else:  # if not then adds them to first 'empty' bracket
-            if self.inventory_space_check():  # checks if there is a space in inventory
+            if self.inventory_space_check():  # checks if there is a space in inventory, otherwise return False
                 first_empty_place = self.item_place('empty')  # finds first empty spot
                 self.inventory_item[first_empty_place] = item
                 self.inventory_amount[first_empty_place] = amount
+            else:
+                return False
 
     def subtract_from_inventory(self, item, amount):  # deletes amount of items from inventory
         place = self.item_place(item)
         if self.inventory_amount[place] < amount:  # checks if item amount > deletion amount
-            print('Amount of an item is insufficient to subtract!')
+            print('Insufficient amount of {} to subtract from!'.format(item))
         else:
             self.inventory_amount[place] -= amount  # subtract from item's amount
             if self.inventory_amount[place] == 0:  # if item's count is 0 then reset bracket
