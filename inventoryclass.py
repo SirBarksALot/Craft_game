@@ -18,9 +18,10 @@
 
 
 class Inventory:
-    def __init__(self):  # inventory object constructor
+    def __init__(self, space):  # inventory object constructor
         self.inventory_item = []
         self.inventory_amount = []
+        self.inventory_space_add(space)  # create space long empty inventory
 
     def inventory_populate(self, item, amount):  # supplementary function for inventory_space_add
         self.inventory_item.append(item)
@@ -59,6 +60,25 @@ class Inventory:
             self.inventory_amount[place] -= amount  # subtract from item's amount
             if self.inventory_amount[place] == 0:  # if item's count is 0 then reset bracket
                 self.inventory_item[place] = 'empty'
+
+    def check_item_amount_in_inventory(self, search_item, search_amount):
+        if self.check_if_item_exists_in_inventory(search_item):
+            i = self.item_place(search_item)
+            if self.inventory_amount[i] >= search_amount:
+                return True
+            else:
+                var_1 = search_amount - self.inventory_amount[i]
+                print('Not enough {} in inventory, you need {} more.'.format(search_item, var_1))
+                return False
+        else:
+            return False
+
+    def check_if_item_exists_in_inventory(self, search_item):
+        if search_item in self.inventory_item:
+            return True
+        else:
+            print('No {} in inventory.'.format(search_item))
+            return False
 
     def print(self):
         for i in range(len(self.inventory_item)):
