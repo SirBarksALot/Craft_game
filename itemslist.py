@@ -1,25 +1,47 @@
-# creating item template:
-# item = object_class('Display name', \
-# boolean_list[common_shop, secret_shop, craft, drop, enchant], {requirements_dictionary})
-
+# adding an item to the list:
+# add_an_item_to_items_list(index, 'Name_1', {'Name_2: amount', 'Name_3': amount})
+# where index is a place in a list, Name_1 is a name of an item and {} is a dictionary of craft requirements
 
 
 items_list = []  # creating empty items_list
 items_req_dict_list = []  # empty requirements dictionary list
 
-def add_an_item_to_items_list(working_list, item, req_dict):
-    working_list.append(item)
+
+def add_an_item_to_items_list(item, req_dict):
+    items_list.append(item)
     items_req_dict_list.append(req_dict)
 
-    return working_list, items_req_dict_list
+    return items_list, items_req_dict_list
 
 
-add_an_item_to_items_list(items_list, 'Wood', {})
-add_an_item_to_items_list(items_list, 'Coal', {})
-add_an_item_to_items_list(items_list, 'Iron ore', {})
-add_an_item_to_items_list(items_list, 'Iron bar', {'Wood': 2, 'Coal': 4, 'Iron Ore': 5})
-add_an_item_to_items_list(items_list, 'Wooden claw', {'Wood': 50})
-add_an_item_to_items_list(items_list, 'Iron claw', {'Wood': 25, 'Iron Bar': 15, 'Wooden claw': 1})
+# basic mats
+add_an_item_to_items_list('Wood', {})
+add_an_item_to_items_list('Coal', {})
+add_an_item_to_items_list('Sand', {})
+add_an_item_to_items_list('Wool', {})
+add_an_item_to_items_list('Thread', {})
+add_an_item_to_items_list('Bone', {})
+add_an_item_to_items_list('Honey', {})
+
+# ores
+add_an_item_to_items_list('Iron ore', {})
+add_an_item_to_items_list('Malachite ore', {})
+
+# key mats
+add_an_item_to_items_list('Wolf claw', {})
+add_an_item_to_items_list('Eagle talon', {})
+add_an_item_to_items_list('Dragon claw', {})
+add_an_item_to_items_list('Wraith nail', {})
+
+# metals
+add_an_item_to_items_list('Iron bar', {'Wood': 2, 'Coal': 4, 'Iron ore': 5})
+add_an_item_to_items_list('Steel bar', {'Wood': 1, 'Coal': 6, 'Iron ore': 4, 'Iron bar': 3})
+add_an_item_to_items_list('Malachite bar', {'Wood': 1, 'Coal': 5, 'Malachite ore': 5})
+
+# weapons
+add_an_item_to_items_list('Wooden claw', {'Wood': 50})
+add_an_item_to_items_list('Iron claw', {'Wood': 10, 'Coal': 25, 'Iron bar': 10, 'Wolf claw': 6, 'Wooden claw': 1})
+add_an_item_to_items_list('Steel claw', {'Wood': 15, 'Coal': 35, 'Steel bar': 8, 'Eagle talon': 8})
 
 
 def depth_level_transform(depth_level):  # transform depth_level_for_indent into --

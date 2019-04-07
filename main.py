@@ -3,7 +3,7 @@ from itemslist import items_list as items_list
 from itemslist import items_req_dict_list as items_req_dict_list
 
 inv_1 = Inv(5)  # creating inventory with empty space
-inv_1.add_to_inventory('Wood', 49)
+inv_1.add_to_inventory('Wood', 51)
 inv_1.add_to_inventory('Coal', 40)
 inv_1.add_to_inventory('Iron Ore', 45)
 inv_1.print()
