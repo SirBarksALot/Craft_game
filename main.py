@@ -35,6 +35,41 @@ def craft_function(craft_item, inventory):
     return
 
 
-craft_function('Wooden claw', inv_1)
-# craft_function('Iron bar', inv_1)
-inv_1.print()
+from direct.showbase.ShowBase import ShowBase
+from panda3d.core import load_prc_file_data
+
+import sys
+import os
+
+# Version number:
+version_number = '0.0.1'
+
+# Switch into the current directory
+os.chdir(os.path.realpath(os.path.dirname(__file__)))
+
+
+class World(ShowBase):
+    def __init__(self):
+        # Setup window size, title and so on
+        #load_prc_file_data('', """
+        #    win-size 1600 900
+        #    window-title Craft game version {}
+        #""".format(version_number))
+
+        # ------ Begin of render pipeline code ------
+
+        # Insert the pipeline path to the system path, this is required to be
+        # able to import the pipeline classes
+        pipeline_path = './RenderPipeline-master/'
+
+        sys.path.insert(0, pipeline_path)
+
+        from rpcore import RenderPipeline, SpotLight
+        self.render_pipeline = RenderPipeline()
+        self.render_pipeline.create(self)
+
+        # ------ End of render pipeline code, that is it! ------
+
+
+game_instance_1 = World()
+game_instance_1.run()
