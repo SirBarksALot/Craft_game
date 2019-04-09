@@ -60,7 +60,7 @@ class World(ShowBase):
 
         # Insert the pipeline path to the system path, this is required to be
         # able to import the pipeline classes
-        pipeline_path = './RenderPipeline-master/'
+        pipeline_path = '../RenderPipeline-master/'
 
         sys.path.insert(0, pipeline_path)
 
